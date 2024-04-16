@@ -1,7 +1,6 @@
 --V2.4
 getgenv().Matchmaking = true
 getgenv().GoldenPerks = {"Minigunner",}
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigmanic/Strategies-X/main/MainSource.lua", true))()
 local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/wxzex/mmsautostratcontinuation/main/autostratscode.txt", true))() 
 TDS:Loadout("Minigunner", "DJ Booth", "Commander", "Mortar", "Farm") 
 TDS:Map("Pizza Party", true, "Survival")
