@@ -1,5 +1,4 @@
 --V2.4
-getgenv().Matchmaking = true
 local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigmanic/Strategies-X/main/MainSource.lua", true))() 
 TDS:Loadout("DJ Booth", "Commander", "Gladiator", "Engineer", "Farm") 
 TDS:Map("Portland", true, "Survival")
