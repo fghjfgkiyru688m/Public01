@@ -1,7 +1,5 @@
 --V2.4
---Vip Gamepass Needed
 getgenv().Matchmaking = true
-getgenv().AutoSkip = true
 local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigmanic/Strategies-X/main/MainSource.lua", true))() 
 TDS:Loadout("DJ Booth", "Commander", "Brawler", "Farm", "Gladiator") 
 TDS:Map("Grass Isle", true, "Survival")
