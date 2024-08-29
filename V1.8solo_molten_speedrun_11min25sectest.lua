@@ -1,3 +1,5 @@
+getgenv().AutoSkip = true
+getgenv().Matchmaking = true
 local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigmanic/Strategies-X/main/MainSource.lua", true))()
 TDS:Map("Winter Abyss", true, "Survival")
 TDS:Loadout({"Warden", "Brawler", "DJ Booth", "Farm", "Commander"})
