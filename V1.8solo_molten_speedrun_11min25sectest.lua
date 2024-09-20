@@ -1,3 +1,4 @@
+getgenv().Matchmaking = true
 getgenv().DefaultCam = 1
 getgenv().AutoSkip = true
 getgenv().BuyMissingTowers = true
