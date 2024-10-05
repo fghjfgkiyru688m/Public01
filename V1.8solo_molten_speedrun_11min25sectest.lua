@@ -5,7 +5,7 @@ getgenv().BuyMissingTowers = true
 getgenv().GroupBypass = true
 local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigmanic/Strategies-X/main/MainSource.lua", true))()
 TDS:Map("Wrecked Battlefield II", true, "Survival")
-TDS:Loadout({"Warden", "Brawler", "DJ Booth", "Commander", "Farm"})
+TDS:Loadout({"Farm", "Commander", "DJ Booth", "Brawler", "Warden"})
 TDS:Mode("Molten")
 TDS:Place("Brawler", -34.79035568237305, 2.049670457839966, -4.238564968109131, 0, 0, 10.7, false, -0, 0, 0)
 TDS:Upgrade(1, 1, 0, 4.3, true)
