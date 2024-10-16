@@ -1,11 +1,10 @@
-getgenv().Matchmaking = true
 getgenv().DefaultCam = 1
 getgenv().AutoSkip = true
 getgenv().BuyMissingTowers = true
 getgenv().GroupBypass = true
 local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigmanic/Strategies-X/main/MainSource.lua", true))()
 TDS:Map("Wrecked Battlefield II", true, "Survival")
-TDS:Loadout({"Farm", "Commander", "DJ Booth", "Brawler", "Warden"})
+TDS:Loadout({"Warden", "Brawler", "DJ Booth", "Commander", "Farm"})
 TDS:Mode("Molten")
 TDS:Place("Brawler", -34.79035568237305, 2.049670457839966, -4.238564968109131, 0, 0, 10.7, false, -0, 0, 0)
 TDS:Upgrade(1, 1, 0, 4.3, true)
@@ -63,10 +62,10 @@ TDS:Target(3, "Weakest", 14, 0, 2.9, true)
 TDS:Target(1, "Weakest", 14, 0, 2.9, false)
 TDS:Upgrade(4, 15, 0, 55.2, false)
 TDS:Upgrade(4, 15, 0, 4.6000000000000005, true)
-TDS:Place("DJ Booth", -26.34610939025879, 1.4065115451812744, 1.7898063659667969, 16, 1, 5, false, -0, 0, 0)
+TDS:Place("DJ Booth", -26.34610939025879, 1.4065115451812744, 1.7898063659667969, 16, 1, 0.5, false, -0, 0, 0)
 TDS:Upgrade(16, 16, 1, 0.8999999999999999, false)
-TDS:Upgrade(16, 16, 0, 59.5, false)
-TDS:Upgrade(16, 16, 0, 59.4, false)
+TDS:Upgrade(16, 16, 0, 59, false)
+TDS:Upgrade(16, 16, 0, 59.1, false)
 TDS:Option(16, "Track", "Green", 16, 0, 59.9, false)
 TDS:Ability(16, "Drop The Beat", 16, 0, 59.7, false)
 TDS:Upgrade(5, 16, 0, 3.2, true)
