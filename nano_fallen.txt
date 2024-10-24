@@ -1,3 +1,4 @@
+getgenv().Matchmaking = true
 local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigmanic/Strategies-X/main/MainSource.lua", true))()
 TDS:Map("Failed Gateway", true, "Halloween2024")
 TDS:Loadout({"Soldier", ["Golden"] = {"Soldier"}})
