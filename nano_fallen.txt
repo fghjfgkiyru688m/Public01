@@ -1,61 +1,56 @@
-local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigmanic/Strategies-X/main/MainSource.lua", true))()
-TDS:Map("Failed Gateway", true, "Halloween2024")
-TDS:Loadout({"Military Base", "Crook Boss"})
-TDS:Skip(0, 0, 0, false)
-TDS:Skip(1, 0, 25, false)
-TDS:Place("Crook Boss", 6.422792434692383, 0.011931538581848145, -16.582225799560547, 1, 0, 23.2, false, -0, 0, 0)
-TDS:Place("Crook Boss", 3.417330741882324, 0.047017548233270645, -16.770252227783203, 1, 0, 19.8, false, -0, 0, 0)
-TDS:Upgrade(2, 1, 0, 15.1, false)
-TDS:Place("Crook Boss", 3.3207876682281494, 0.04065530002117157, -13.72935676574707, 2, 0, 29.6, false, -0, 0, 0)
-TDS:Upgrade(1, 2, 0, 23.2, false)
-TDS:Place("Crook Boss", 6.334959030151367, 0.07223158329725266, -13.58027172088623, 2, 0, 3.8, true, -0, 0, 0)
-TDS:Upgrade(4, 2, 0, 2.6, true)
-TDS:Upgrade(3, 2, 0, 1.4, true)
-TDS:Place("Military Base", 19.29819107055664, 0.527982771396637, -15.237222671508789, 3, 0, 3.9, true, -0, 0, 0)
-TDS:Place("Military Base", 24.162277221679688, 0.7636847496032715, -15.237431526184082, 3, 0, 1.6, true, -0, 0, 0)
-TDS:Upgrade(5, 4, 0, 31.8, false)
-TDS:Upgrade(5, 4, 0, 29.7, false)
-TDS:Upgrade(6, 4, 0, 28.5, false)
-TDS:Upgrade(6, 4, 0, 14.4, false)
-TDS:Upgrade(5, 5, 0, 44.9, false)
-TDS:Place("Military Base", 26.7562255859375, 0.6968295574188232, -11.247838973999023, 5, 0, 17.9, false, -0, 0, 0)
-TDS:Place("Military Base", 26.994564056396484, 0.8208761215209961, -3.9739902019500732, 5, 0, 13.1, false, -0, 0, 0)
-TDS:Upgrade(7, 5, 0, 4.4, true)
-TDS:Upgrade(7, 5, 0, 4.6, true)
-TDS:Upgrade(8, 5, 0, 3.2, true)
-TDS:Upgrade(8, 5, 0, 3.3, true)
-TDS:Place("Military Base", 19.330677032470703, 0.48583802580833435, -7.717777252197266, 6, 1666, 40.8, false, -0, 0, 0)
-TDS:Upgrade(9, 6, 1666, 38.5, false)
-TDS:Upgrade(9, 6, 1666, 38, false)
-TDS:Upgrade(6, 6, 1666, 1, false)
-TDS:Upgrade(9, 7, 1665, 29, false)
-TDS:Upgrade(7, 7, 0, 28.5, true)
-TDS:Upgrade(8, 7, 0, 28, true)
-TDS:Upgrade(8, 8, 0, 35, false)
-TDS:Upgrade(7, 9, 0, 46, false)
-TDS:Place("Crook Boss", 9.738704681396484, 0.010227620601654053, -14.811695098876953, 9, 0, 41.9, false, -0, 0, 0)
-TDS:Upgrade(10, 9, 0, 40, false)
-TDS:Upgrade(10, 9, 0, 39, false)
-TDS:Upgrade(1, 9, 0, 37, false)
-TDS:Upgrade(4, 9, 0, 30, false)
-TDS:Upgrade(3, 9, 0, 26, false)
-TDS:Upgrade(2, 9, 0, 25, false)
-TDS:Upgrade(9, 9, 0, 2, true)
-TDS:Upgrade(5, 10, 0, 2, true)
-TDS:Upgrade(6, 11, 0, 35, false)
-TDS:Upgrade(9, 12, 0, 38, false)
-TDS:Upgrade(7, 13, 0, 3, true)
-TDS:Upgrade(6, 14, 0, 2, true)
-TDS:Upgrade(8, 15, 1666, 4, false)
-TDS:Upgrade(5, 15, 1665, 55, false)
-TDS:Upgrade(10, 15, 1665, 50, false)
-TDS:Upgrade(1, 15, 1665, 48, false)
-TDS:Upgrade(4, 15, 1665, 47, false)
-TDS:Upgrade(3, 15, 1665, 46, false)
-TDS:Upgrade(2, 15, 1665, 45, false)
-TDS:Upgrade(10, 15, 1665, 0, false)
-TDS:Upgrade(4, 15, 1665, 0, false)
-TDS:Upgrade(3, 15, 1665, 0, false)
-TDS:Upgrade(2, 15, 1665, 0, false)
-TDS:Upgrade(1, 15, 1665, 0, false)
-TDS:Skip(15, 0, 10, false)
+-- lobby optimizations
+getgenv().lobbyoptimizations = true
+getgenv().removeplayers = true
+-- game optimizations
+getgenv().gameoptimizations = true
+
+task.spawn(function()
+    while getgenv().lobbyoptimizations and game.PlaceId == 3260590327 do
+        task.wait(2)
+        for _, folderName in ipairs({
+            "Credits", "Announcements", "Paintings",
+            "Artboards", "Leaderboards", "Survival", 
+            "Hardcore", "CrateArea", "InvisibleBarriers",
+            "Environment"
+        }) do
+            if game.Workspace:FindFirstChild(folderName) then
+                for _, item in ipairs(game.Workspace[folderName]:GetChildren()) do
+                    item:Destroy()
+                end
+            end
+        end
+        
+        if getgenv().removeplayers then
+            for _, player in ipairs(game.Players:GetPlayers()) do
+                if player ~= game.Players.LocalPlayer then
+                    player:Remove()
+                    if game.Workspace:FindFirstChild(player.Name) then
+                        game.Workspace[player.Name]:Destroy()
+                    end
+                end
+            end
+        end
+    end       
+end)
+
+task.spawn(function()
+    if getgenv().gameoptimizations then
+        repeat task.wait() until game:IsLoaded() and game.PlaceId == 5591597781
+        game.Workspace.Map.Environment:Destroy()
+        for _, item in ipairs(workspace.Terrain:GetChildren()) do
+            if string.find(item.Name, "Effect") then -- delete all the effects
+                item:Destroy()
+            end
+        end
+        local laser = require(game:GetService("ReplicatedStorage").Client.Modules.Game.Compatibility.Modules.Laser)
+        laser.Cast = function(...)
+            return
+        end
+        laser.Bolt = function(...)
+            return
+        end
+        laser.Lightning = function(...)
+            return
+        end
+    end
+end)
