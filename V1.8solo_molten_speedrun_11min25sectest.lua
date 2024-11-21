@@ -3,7 +3,7 @@ getgenv().AutoSkip = true
 getgenv().BuyMissingTowers = true
 getgenv().GroupBypass = true
 getgenv().Matchmaking = true
-local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigmanic/Strategies-X/main/MainSource.lua", true))()
+local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/SkremGah/Strategies-X/main/MainSource.lua", true))()
 TDS:Map("Wrecked Battlefield II", true, "Survival")
 TDS:Loadout({"Farm", "Commander", "DJ Booth", "Brawler", "Warden"})
 TDS:Mode("Molten")
