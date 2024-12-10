@@ -1,5 +1,5 @@
 getgenv().StratCreditsAuthor = "Optional"
-local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigmanic/Strategies-X/main/MainSource.lua", true))()
+local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigmanic/Strategies-X/main/TDS/MainSource.lua", true))()
 TDS:Map("U-Turn", true, "Survival")
 TDS:Loadout({"Accelerator", "Ranger", "Crook Boss", "DJ Booth", "Engineer", ["Golden"] = {"Crook Boss"}})
 TDS:Mode("Fallen")
