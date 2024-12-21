@@ -1,7 +1,7 @@
 getgenv().BuyMissingTowers = true
 getgenv().GroupBypass = true
 getgenv().StratCreditsAuthor = "Rock"
-local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigmanic/Strategies-X/main/MainSource.lua", true))()
+local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigmanic/Strategies-X/main/TDS/MainSource.lua", true))()
 TDS:Map("Honey Valley", true, "Survival")
 TDS:Loadout({"Ranger", "Turret", "Crook Boss", "Electroshocker", "Military Base", ["Golden"] = {"Crook Boss"}})
 TDS:Mode("Fallen")
