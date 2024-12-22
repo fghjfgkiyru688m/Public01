@@ -1,4 +1,3 @@
-getgenv().StratCreditsAuthor = "Optional"
 local TDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/Sigmanic/Strategies-X/main/TDS/MainSource.lua", true))()
 TDS:Map("Honey Valley", true, "Survival")
 TDS:Loadout({"Warden", "Brawler", "Mercenary Base", "Engineer", "Farm"})
