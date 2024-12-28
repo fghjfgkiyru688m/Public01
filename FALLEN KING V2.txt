@@ -1,4 +1,3 @@
-getgenv().AutoSkip = true
 getgenv().DefaultCam = 1
 getgenv().PreferMatchmaking = true
 getgenv().StratCreditsAuthor = "botaccforsomething"
