@@ -1,0 +1,130 @@
+-- // Not the source tard
+
+local load_essence = function()
+	writefile("Essence/key",script_key)
+	local GameId = game.GameId
+	if GameId == 3647978359 then
+		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/9cbb1a35ea6c9ea3deb30c9e505606fa.lua"))() -- // Tha Bronx 2
+	elseif GameId == 1526814825 then 
+		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/767b3e88e59885577f423234e1a4519b.lua"))() -- // War Tycoon
+	elseif GameId == 210851291 then 
+		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/23ecc3ba665aaef4e0f5a8177d0db313.lua"))() -- // Build A Boat For Treasure
+	end
+end
+
+local EssenceLogin = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local KeyBox = Instance.new("TextBox")
+local UICorner = Instance.new("UICorner")
+local UICorner_2 = Instance.new("UICorner")
+local Title = Instance.new("TextLabel")
+local GetKeyButton = Instance.new("TextButton")
+local ConfirmButton = Instance.new("TextButton")
+local DefKey = ""
+
+if not isfolder("Essence") then 
+	makefolder("Essence")
+end
+
+if isfile("Essence/key") then 
+	DefKey = readfile("Essence/key")
+end
+
+if script_key then 
+	DefKey = script_key
+end
+
+EssenceLogin.Name = "EssenceLogin"
+EssenceLogin.Parent = game.CoreGui
+EssenceLogin.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = EssenceLogin
+MainFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MainFrame.BorderSizePixel = 0
+MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+MainFrame.Size = UDim2.new(0, 350, 0, 173)
+MainFrame.Active = true
+MainFrame.Draggable = true
+
+KeyBox.Name = "KeyBox"
+KeyBox.Parent = MainFrame
+KeyBox.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+KeyBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+KeyBox.BorderSizePixel = 0
+KeyBox.Position = UDim2.new(0.0597800985, 0, 0.207590356, 0)
+KeyBox.Size = UDim2.new(0, 306, 0, 33)
+KeyBox.Font = Enum.Font.Gotham
+KeyBox.PlaceholderText = "Enter your key here."
+KeyBox.Text = DefKey
+KeyBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+KeyBox.TextSize = 14.000
+
+UICorner.CornerRadius = UDim.new(0, 5)
+UICorner.Parent = KeyBox
+
+UICorner_2.CornerRadius = UDim.new(0, 5)
+UICorner_2.Parent = MainFrame
+
+Title.Name = "Title"
+Title.Parent = MainFrame
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.0737946406, 0, 0.00133388862, 0)
+Title.Size = UDim2.new(0, 297, 0, 36)
+Title.Font = Enum.Font.GothamBold
+Title.Text = "Essence Key System"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 14.000
+
+GetKeyButton.Name = "GetKeyButton"
+GetKeyButton.Parent = MainFrame
+GetKeyButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+GetKeyButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+GetKeyButton.BorderSizePixel = 0
+GetKeyButton.Position = UDim2.new(0.0571428575, 0, 0.446330607, 0)
+GetKeyButton.Size = UDim2.new(0, 307, 0, 33)
+GetKeyButton.Font = Enum.Font.Gotham
+GetKeyButton.Text = "Get Key"
+GetKeyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+GetKeyButton.TextSize = 14.000
+
+ConfirmButton.Name = "ConfirmButton"
+ConfirmButton.Parent = MainFrame
+ConfirmButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+ConfirmButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ConfirmButton.BorderSizePixel = 0
+ConfirmButton.Position = UDim2.new(0.0571428575, 0, 0.699495196, 0)
+ConfirmButton.Size = UDim2.new(0, 306, 0, 33)
+ConfirmButton.Font = Enum.Font.Gotham
+ConfirmButton.Text = "Confirm"
+ConfirmButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ConfirmButton.TextSize = 14.000
+
+GetKeyButton.MouseButton1Click:Connect(function()
+	setclipboard("https://getessence.pages.dev/getkey")
+	GetKeyButton.Text = "Get Key (Copied To Clipboard)"
+	task.wait(0.5)
+	GetKeyButton.Text = "Get Key"
+end)
+
+ConfirmButton.MouseButton1Click:Connect(function()
+	local modifiedString = string.gsub(KeyBox.Text, "\n", "")
+	script_key = modifiedString
+	EssenceLogin:Destroy()
+	load_essence()
+end)
+
+local queued = false
+
+game.Players.LocalPlayer.OnTeleport:Connect(function(State)
+	if not queued and not Debug then 
+		queued = true
+		local scriptloadstring = [[loadstring(game:HttpGet("https://getessence.pages.dev/load.lua"))()]]
+		queue_on_teleport(scriptloadstring)
+	end
+end)
